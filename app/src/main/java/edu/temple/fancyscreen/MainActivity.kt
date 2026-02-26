@@ -4,7 +4,6 @@ import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -18,39 +17,31 @@ class MainActivity : AppCompatActivity() {
 
         findViewById<ImageView>(R.id.profile_photo).setImageResource(R.drawable.istockphoto)
 
-        findViewById<TextView>(R.id.name).setText("Michelle Townsend")
+        // Replaced with string resource
+        findViewById<TextView>(R.id.name).text = getString(R.string.employee_name)
 
         with(findViewById<TextView>(R.id.email)) {
-            text = "mt@ourcompany.com"
+            // Replaced with string resource
+            text = getString(R.string.employee_email)
             setTextColor(Color.BLUE)
         }
 
-        findViewById<TextView>(R.id.extension).text = "2253"
+        findViewById<TextView>(R.id.extension).text = getString(R.string.employee_extension)
 
-        findViewById<TextView>(R.id.department).text = "Design"
+        findViewById<TextView>(R.id.department).text = getString(R.string.employee_department)
 
-        findViewById<TextView>(R.id.supervisor).text = "Gail Davers"
+        findViewById<TextView>(R.id.supervisor).text = getString(R.string.employee_supervisor)
 
         with (findViewById<RecyclerView>(R.id.directReportsRecyclerView)) {
-            adapter = RecyclerViewAdapter(
-                arrayOf(
-                    "Kate Sacloff",
-                    "Andrew Klein",
-                    "Maria Ortega",
-                    "Brent Stevenson",
-                    "Daniel Cho",
-                    "Jorge Gomez"
-                )
-            )
+            // Replaced hardcoded array with string-array resource
+            adapter = RecyclerViewAdapter(resources.getStringArray(R.array.direct_reports_array))
             layoutManager = LinearLayoutManager(this@MainActivity)
         }
     }
 }
 
 class RecyclerViewAdapter (private val staffList: Array<String>) : RecyclerView.Adapter<RecyclerViewAdapter.StaffListViewHolder>() {
-    class StaffListViewHolder(val textView: TextView) : ViewHolder(textView) {
-
-    }
+    class StaffListViewHolder(val textView: TextView) : ViewHolder(textView) {}
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StaffListViewHolder {
         return StaffListViewHolder(

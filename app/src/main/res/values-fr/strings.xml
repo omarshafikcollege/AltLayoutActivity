@@ -3,8 +3,8 @@
     <string name="employee_name">Michelle Townsend</string>
     <string name="employee_email">mt@ourcompany.com</string>
     <string name="employee_extension">2253</string>
-    <string name="employee_department">Design</string>
-    <string name="employee_supervisor">Jeff</string>
+    <string name="employee_department">Conception</string>
+    <string name="employee_supervisor">Gail Davers</string>
 
     <string-array name="direct_reports_array">
         <item>Naruto Uzumaki</item>
